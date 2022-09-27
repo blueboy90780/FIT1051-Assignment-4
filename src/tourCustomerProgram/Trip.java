@@ -69,12 +69,16 @@ class Trip {
         // indexPosition probably represents the order in which the user want to go on trips
         if (destinationLocation != null) { //the default value for an uninitialized string
             // Add destination by index
-            destinationList.add(indexPosition, destinationLocation); // First argument accepts an index, so probably acts like the insert() equivalent
+            if (destinationList.size() <= 20) {
+                destinationList.add(indexPosition, destinationLocation); // First argument accepts an index, so probably acts like the insert() equivalent
+            } else {
+                System.out.println("No more trips can be added");
+            }
         }
     }
 
     protected void removeDestinationByIndex (int destinationLocationIndex) {
-        if (destinationList.get(destinationLocationIndex) != null) { //TODO: Test in terminal if specifying an invalid index in ArrayList returns null or throws an error
+        if (destinationList.get(destinationLocationIndex) != null) { // TODO: Test in terminal if specifying an invalid index in ArrayList returns null or throws an error
             // If exists in the list, remove
             destinationList.remove(destinationLocationIndex);
         }
