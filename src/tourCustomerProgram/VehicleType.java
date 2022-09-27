@@ -1,15 +1,15 @@
 package tourCustomerProgram;
 
 public enum VehicleType {
-    Sedan("Sedan"),
+    SEDAN("Sedan"),
     SUV("SUV"),
-    Van("Van"),
-    Minibus("Minibus");
+    VAN("Van"),
+    MINIBUS("Minibus");
 
-    private String stringInput;
+    private final String vehicleType;
 
     // Constructor
-    VehicleType(String stringInput) {
-        this.stringInput = stringInput;
+    VehicleType(String vehicleType) {
+        this.vehicleType = vehicleType;
     }
 }

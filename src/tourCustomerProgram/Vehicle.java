@@ -19,7 +19,6 @@ class Vehicle {
         // Sensible default values, not defined by the user
         this.regoNumber = new char[6];
         this.mileage = 0.0f;
-        this.type = VehicleType.Minibus; // TODO: Check later
     }
 
     // Getters/Accessors
@@ -54,7 +53,27 @@ class Vehicle {
 
     protected boolean setType(String userInput) {
         // Can be only of 4 types
-        // TODO: Figure this out
+        switch (userInput.toLowerCase()) {
+            case "sedan" -> {
+                type = VehicleType.SEDAN;
+                return true;
+            }
+            case "suv" -> {
+                type = VehicleType.SUV;
+                return true;
+            }
+            case "van" -> {
+                type = VehicleType.VAN;
+                return true;
+            }
+            case "minibus" -> {
+                type = VehicleType.MINIBUS;
+                return true;
+            }
+            default -> {
+                return false; // Couldn't set a value
+            }
+        }
     }
 
     public String toString() {
