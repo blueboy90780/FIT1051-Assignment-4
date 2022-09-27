@@ -3,6 +3,7 @@ package tourCustomerProgram;
 // Sources:
 // 1) https://www.javatpoint.com/java-string-max-size
 
+import javax.lang.model.type.NullType;
 import java.util.Arrays;
 
 class Vehicle {
@@ -15,10 +16,10 @@ class Vehicle {
 
     // Default Constructor
     protected Vehicle(char[] regoNumber, float mileage, VehicleType type) {
-        // TODO: Find what to do with the boolean return values later
-        setRegoNumber(regoNumber);
-        setMileage(mileage);
-        setType(type);
+        // Sensible default values, not defined by the user
+        this.regoNumber = new char[6];
+        this.mileage = 0.0f;
+        this.type = VehicleType.Minibus; // TODO: Check later
     }
 
     // Getters/Accessors
@@ -35,31 +36,25 @@ class Vehicle {
     }
 
     // Setters/Mutators
-    protected boolean setRegoNumber(char[] regoNumber) {
-        try {
-            this.regoNumber = regoNumber;
-            return true;
-        } catch (Exception e) {
-            return false; //Return false if ANY error occurs
+    // These are user-defined values
+    protected void setRegoNumber(String regoNumber) { // Taking a String input because that's how we'll parse user_input
+        // Ensure it's exactly 6 characters long. Should be a string
+        char[] charInput = regoNumber.toCharArray(); // Convert to character array
+        if (charInput.length == 6) {
+            this.regoNumber = charInput;
         }
     }
 
-    protected boolean setMileage(float mileage) {
-        try {
+    protected void setMileage(float mileage) {
+        // Maximum will be 900.00 km
+        if (mileage >= 0f && mileage <= 900f) {
             this.mileage = mileage;
-            return true;
-        } catch (Exception e) {
-            return false; //Return false if ANY error occurs
         }
     }
 
-    protected boolean setType(VehicleType type) {
-        try {
-            this.type = type;
-            return true;
-        } catch (Exception e) {
-            return false; //Return false if ANY error occurs
-        }
+    protected boolean setType(String userInput) {
+        // Can be only of 4 types
+        // TODO: Figure this out
     }
 
     public String toString() {
