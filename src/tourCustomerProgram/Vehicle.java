@@ -54,26 +54,22 @@ class Vehicle {
     protected boolean setType(String userInput) {
         // Can be only of 4 types
         switch (userInput.toLowerCase()) {
-            case "sedan" -> {
-                type = VehicleType.SEDAN;
-                return true;
-            }
-            case "suv" -> {
-                type = VehicleType.SUV;
-                return true;
-            }
-            case "van" -> {
-                type = VehicleType.VAN;
-                return true;
-            }
-            case "minibus" -> {
-                type = VehicleType.MINIBUS;
-                return true;
-            }
-            default -> {
-                return false; // Couldn't set a value
-            }
+            case "sedan":
+                this.type = VehicleType.SEDAN;
+                break;
+            case "suv":
+                this.type = VehicleType.SUV;
+                break;
+            case "van":
+                this.type = VehicleType.VAN;
+                break;
+            case "minibus":
+                this.type = VehicleType.MINIBUS;
+                break;
+            default:
+                return false;
         }
+        return true;
     }
 
     // TODO: Clean up this formatting

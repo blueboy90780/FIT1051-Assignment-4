@@ -4,7 +4,6 @@ Source
  */
 
 package tourCustomerProgram;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -22,9 +21,23 @@ class TripDriver {
         ArrayList<String> vehicleInfo = Utility.stringConvert(userInput);
 
         // Sets the vehicle's state
-        vehicleOne.setType(vehicleInfo.get(0)); // Vehicle Type
-        vehicleOne.setRegoNumber(vehicleInfo.get(1)); // Registration Number
+        vehicleOne.setRegoNumber(vehicleInfo.get(1)); // Vehicle Type
         vehicleOne.setMileage(Float.parseFloat(vehicleInfo.get(2))); // Mileage
+
+        // Checks if vehicle is valid
+        while (!vehicleOne.setType(vehicleInfo.get(0))) {
+            System.out.println("You can only pick between " + Arrays.toString(VehicleType.values()));
+            // Ask user again to give a right input
+            userInput = new Scanner(System.in); // Reusing the same variable for memory efficiency
+            System.out.print("Input vehicle again: ");
+
+            // Converts input
+            vehicleInfo = Utility.stringConvert(userInput);
+
+            // Updates checkType
+            vehicleOne.setType(vehicleInfo.get(0));
+            System.out.println(); // Prints a new line
+        }
 
         // Extra:  Ask user to name the trip
         userInput = new Scanner(System.in); // Reset userInput
@@ -46,7 +59,7 @@ class TripDriver {
         }
 
         // Print the Trip class information to the screen
-        System.out.println(soloTravel.toString());
+        System.out.println(soloTravel); // println() invokes the toString() method
 
         // Extra: Ask user which destination they want to remove
         userInput = new Scanner(System.in);
@@ -56,6 +69,6 @@ class TripDriver {
         soloTravel.removeDestinationByIndex(destinationList.indexOf(userInput.next())); // indexOf() returns -1 if it does not exists
 
         // Print the revised Trip class information to the screen
-        System.out.println(soloTravel.toString());
+        System.out.println(soloTravel);
     }
 }

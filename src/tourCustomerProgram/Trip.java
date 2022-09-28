@@ -19,10 +19,10 @@ class Trip {
     private final Date currentDate; // Apparently making it a constant without assigning a value still allows to assign a value
     private ArrayList<String> destinationList;
 
-    // constructor
-
+    // Constructor
     protected Trip(char[] tripName, Vehicle aVehicle) {
-        this.tripName = tripName;
+        // To protect integrity of instance variables, the setter methods are called
+        setTripName(tripName);
         this.aVehicle = aVehicle;
         this.currentDate = new Date(System.currentTimeMillis());
         this.destinationList = new ArrayList<>();
@@ -85,9 +85,11 @@ class Trip {
                 Trip Name: %s
                 Start Date: %s
                 Destinations: %s
+                %s
                 """, Utility.sb.append(tripName),
                 currentDate,
-                destinationList
-        ) + aVehicle.toString();
+                destinationList,
+                aVehicle
+        );
     }
 }
