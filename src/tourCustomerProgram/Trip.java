@@ -1,6 +1,7 @@
 /*
 Sources:
 1) https://www.geeksforgeeks.org/initialize-an-arraylist-in-java/
+2) https://www.javatpoint.com/java-get-current-date
  */
 
 package tourCustomerProgram;
@@ -15,21 +16,15 @@ class Trip {
     // Instance Variable
     private char[] tripName;
     private Vehicle aVehicle;
-    private Date currentDate;
+    private final Date currentDate; // Apparently making it a constant without assigning a value still allows to assign a value
     private ArrayList<String> destinationList;
 
     // constructor
-    /*
-    Code a non default two-parameter constructor with parameters for tripName  and aVehicle.
-    Instance variables that are not taking parameters must be auto-initialised with sensible default value or object.
-    The constructor must utilize appropriate naming conventions, they protect the integrity of the class's instance variables.
-    "Integrity" probably is referring to some guardian code that checks for valid arguments
-     */
 
     protected Trip(char[] tripName, Vehicle aVehicle) {
         this.tripName = tripName;
         this.aVehicle = aVehicle;
-        this.currentDate = new Date();
+        this.currentDate = new Date(System.currentTimeMillis());
         this.destinationList = new ArrayList<>();
     }
 
@@ -85,15 +80,14 @@ class Trip {
         }
     }
 
-    // TODO: Clean up this formatting
     public String toString() {
-        return "Trip{" +
-                "Trip Name:" + Arrays.toString(tripName) +
-                ", Start Date:" + currentDate +
-                ", Destinations:" + destinationList +
-                ", Vehicle" + aVehicle +
-                ", Rego Number" + Arrays.toString(aVehicle.getRegoNumber()) +
-                ", Mileage: " + aVehicle.getMileage() +
-                '}';
+        return String.format("""
+                Trip Name: %s
+                Start Date: %s
+                Destinations: %s
+                """, Utility.sb.append(tripName),
+                currentDate,
+                destinationList
+        ) + aVehicle.toString();
     }
 }
