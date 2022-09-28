@@ -1,11 +1,12 @@
 /*
 Source
-1) https://www.javatpoint.com/java-list
+1) https://stackoverflow.com/questions/26210697/possible-to-loop-through-scanner-input
  */
 
 package tourCustomerProgram;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -34,9 +35,10 @@ class TripDriver {
         System.out.print("Type out 3 destinations you would like to go to: ");
 
         // Converts user input into a list of string tokens
-        List<String> destinationInputList = userInput.tokens().toList();
-        for (int i = 0; i < destinationInputList.size(); i ++) {
-            soloTravel.addDestinationByIndex(destinationInputList.get(i),i);
+        String str = userInput.nextLine();
+        ArrayList<String> inputList = new ArrayList<>(Arrays.asList(str.split(" "))); // Does some weird shit
+        for (int i = 0; i < inputList.size(); i++) {
+            soloTravel.addDestinationByIndex(inputList.get(i), i);
         }
 
         // Print the Trip class information to the screen

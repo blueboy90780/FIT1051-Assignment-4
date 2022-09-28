@@ -22,7 +22,7 @@ class Trip {
     /*
     Code a non default two-parameter constructor with parameters for tripName  and aVehicle.
     Instance variables that are not taking parameters must be auto-initialised with sensible default value or object.
-    The constructor must utilise appropriate naming conventions and they protect the integrity of the class's instance variables.
+    The constructor must utilize appropriate naming conventions, they protect the integrity of the class's instance variables.
     "Integrity" probably is referring to some guardian code that checks for valid arguments
      */
 
@@ -78,8 +78,9 @@ class Trip {
     }
 
     protected void removeDestinationByIndex (int destinationLocationIndex) {
-        if (destinationList.get(destinationLocationIndex) != null) { // TODO: Test in terminal if specifying an invalid index in ArrayList returns null or throws an error
-            // If exists in the list, remove
+        // Checks if the index exists
+        if (destinationList.size() >= destinationLocationIndex) {
+            // If yes remove!
             destinationList.remove(destinationLocationIndex);
         }
     }
