@@ -7,17 +7,15 @@ package tourCustomerProgram;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
 class TripDriver {
-    // code here
     public static void main(String[] args) {
         // Instantiate a Vehicle Class
         Vehicle vehicleOne = new Vehicle();
         // Ask user to specify vehicle
         Scanner userInput = new Scanner(System.in);
-        System.out.print("Type your desired vehicle, registration number and mileage in order: ");
+        System.out.print("Type your desired vehicle, registration number (6 characters long) and mileage in order: ");
 
         // Sets the vehicle's state
         vehicleOne.setType(userInput.next()); // Vehicle Type
@@ -36,9 +34,9 @@ class TripDriver {
 
         // Converts user input into a list of string tokens
         String str = userInput.nextLine();
-        ArrayList<String> inputList = new ArrayList<>(Arrays.asList(str.split(" "))); // Does some weird shit
-        for (int i = 0; i < inputList.size(); i++) {
-            soloTravel.addDestinationByIndex(inputList.get(i), i);
+        ArrayList<String> destinationList = new ArrayList<>(Arrays.asList(str.split(" ")));
+        for (int i = 0; i < destinationList.size(); i++) {
+            soloTravel.addDestinationByIndex(destinationList.get(i), i);
         }
 
         // Print the Trip class information to the screen
@@ -49,11 +47,7 @@ class TripDriver {
         System.out.println("Which destination would you like to remove? ");
 
         // Remove one destination from the destination list
-        // This code is calling indexOf() method from java.util.list.
-        // This makes the guardian code in removeDestinationByIndex absolutely redundant/useless
-        // Because this line would throw an error regardless if the destination does not exist in the list
-        // Method would be better if it asks to remove destination by string rather than index
-        soloTravel.removeDestinationByIndex(destinationInputList.indexOf(userInput.next()));
+        soloTravel.removeDestinationByIndex(destinationList.indexOf(userInput.next())); // indexOf() returns -1 if it does not exists
 
         // Print the revised Trip class information to the screen
         System.out.println(soloTravel.toString());

@@ -76,6 +76,7 @@ class Vehicle {
         }
     }
 
+    // TODO: Clean up this formatting
     public String toString() {
         return String.format("Vehicle: %s \n Rego Number: %s \n Mileage: %s"
                 ,this.type, Arrays.toString(this.regoNumber), this.mileage);

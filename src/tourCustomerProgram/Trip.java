@@ -79,12 +79,13 @@ class Trip {
 
     protected void removeDestinationByIndex (int destinationLocationIndex) {
         // Checks if the index exists
-        if (destinationList.size() >= destinationLocationIndex) {
+        if (destinationLocationIndex != -1) {
             // If yes remove!
             destinationList.remove(destinationLocationIndex);
         }
     }
 
+    // TODO: Clean up this formatting
     public String toString() {
         return "Trip{" +
                 "Trip Name:" + Arrays.toString(tripName) +
