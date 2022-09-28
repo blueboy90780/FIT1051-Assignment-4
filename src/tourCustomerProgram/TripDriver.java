@@ -13,7 +13,7 @@ class TripDriver {
     // code here
     public static void main(String[] args) {
         // Instantiate a Vehicle Class
-        Vehicle vehicleOne = new Vehicle(); // TODO: FIX THIS
+        Vehicle vehicleOne = new Vehicle();
         // Ask user to specify vehicle
         Scanner userInput = new Scanner(System.in);
         System.out.print("Type your desired vehicle, registration number and mileage in order: ");

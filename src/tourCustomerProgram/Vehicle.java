@@ -15,7 +15,7 @@ class Vehicle {
     private VehicleType type; // Declaring an enum to generate pointer
 
     // Default Constructor
-    protected Vehicle(char[] regoNumber, float mileage, VehicleType type) {
+    protected Vehicle() {
         // Sensible default values, not defined by the user
         this.regoNumber = new char[6];
         this.mileage = 0.0f;

@@ -15,7 +15,7 @@ class Trip {
     // Instance Variable
     private char[] tripName;
     private Vehicle aVehicle;
-    private Date currentDate; //TODO: Check if it's the correct type
+    private Date currentDate;
     private ArrayList<String> destinationList;
 
     // constructor
