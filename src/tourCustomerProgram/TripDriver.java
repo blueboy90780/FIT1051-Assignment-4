@@ -1,9 +1,15 @@
 /*
+Project Information:
+Name: Nguyen Tien Dung (David)
+Student ID: 32093888
+Email: tngu0329@student.monash.edu
+
 Source
 1) https://stackoverflow.com/questions/26210697/possible-to-loop-through-scanner-input
  */
 
 package tourCustomerProgram;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -24,9 +30,10 @@ class TripDriver {
         vehicleOne.setRegoNumber(vehicleInfo.get(1)); // Vehicle Type
         vehicleOne.setMileage(Float.parseFloat(vehicleInfo.get(2))); // Mileage
 
-        // Checks if vehicle is valid
+        // Checks if the vehicle type is valid, if not asks again for user input until a valid input is given
         while (!vehicleOne.setType(vehicleInfo.get(0))) {
             System.out.println("You can only pick between " + Arrays.toString(VehicleType.values()));
+
             // Ask user again to give a right input
             userInput = new Scanner(System.in); // Reusing the same variable for memory efficiency
             System.out.print("Input vehicle again: ");
@@ -34,9 +41,8 @@ class TripDriver {
             // Converts input
             vehicleInfo = Utility.stringConvert(userInput);
 
-            // Updates checkType
-            vehicleOne.setType(vehicleInfo.get(0));
-            System.out.println(); // Prints a new line
+            // Prints a new line
+            System.out.println();
         }
 
         // Extra:  Ask user to name the trip

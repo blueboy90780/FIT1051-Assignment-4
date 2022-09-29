@@ -11,12 +11,12 @@ import java.util.Scanner;
 
 // Helpful utility objects used across different classes
 public class Utility {
-    // Extra Instance Variable
-    public static StringBuilder sb = new StringBuilder(); //Needed to convert char[] into a proper String
 
-    public static ArrayList<String> stringConvert (Scanner userInput) {
+    // Converts a user input into a list of String tokens
+    public static ArrayList<String> stringConvert(Scanner userInput) {
         // Converts user input into a list of string tokens
         String str = userInput.nextLine();
+        // Delimited by spaces
         return new ArrayList<>(Arrays.asList(str.split(" ")));
     }
 }
